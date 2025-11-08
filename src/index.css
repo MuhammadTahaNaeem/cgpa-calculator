@@ -1,11 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Theme tokens */
+  --bg: 255 255 255; /* light */
+  --fg: 17 24 39; /* gray-900 */
+  --muted: 107 114 128; /* gray-500 */
+  --brand: 79 70 229; /* indigo-600 */
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(var(--fg), 1);
+  background-color: rgb(var(--bg));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,11 +33,11 @@ a:hover {
 }
 
 body {
+  @apply bg-gray-50 text-gray-900;
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -56,8 +66,10 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --bg: 255 255 255;
+    --fg: 33 53 71;
+    --muted: 100 116 139;
+    --brand: 79 70 229;
   }
   a:hover {
     color: #747bff;
@@ -66,3 +78,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root.dark, :root .dark {
+    --bg: 17 24 39;
+    --fg: 226 232 240;
+    --muted: 148 163 184;
+    --brand: 99 102 241;
+  }
+}
+
+/* Utility classes using CSS variables when needed */
+.text-accent { color: rgb(var(--brand)); }
+.bg-accent { background-color: rgb(var(--brand)); }
+.glass-bg { background-color: rgba(var(--bg), 0.6); }
