@@ -54,7 +54,7 @@ export default function App() {
     <div className="min-h-screen py-12 bg-gradient-to-br from-indigo-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900">
       <div className="max-w-4xl mx-auto px-4">
         <div className="glass-card p-6 rounded-2xl shadow-2xl">
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex items-start justify-between gap-6 flex-col sm:flex-row mb-6">
             <Header />
             <Controls />
           </div>
